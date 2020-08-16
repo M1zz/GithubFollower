@@ -14,6 +14,8 @@ class SearchVC: UIViewController {
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
+    // MARK: TODO : 프로퍼티의 종류에 대해 다시 공부할 필요가 있음!
+    var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,7 @@ class SearchVC: UIViewController {
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
+        createDismissKeyboardTapGusture()
     }
     
     // viewDidload에서 부르면 처음에는 제대로 동작하지만 다시 뷰가 불릴 때는 불리지 않기 때문에 뷰에 모습이 계속 적용되길 바란다면 viewWillappear
@@ -28,6 +31,26 @@ class SearchVC: UIViewController {
         // super를 부르지 않는 경우는?
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    func createDismissKeyboardTapGusture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func pushFollowerLishVC() {
+        guard isUsernameEntered else {
+            print("No username!")
+            return
+        }
+//        guard usernameTextField.text?.isValidEmail ?? false else {
+//            print("Not a enail!")
+//            return
+//        }
+        let followerListVC = FollowerListVC()
+        followerListVC.username = usernameTextField.text
+        followerListVC.title = usernameTextField.text
+        navigationController?.pushViewController(followerListVC, animated: true)
     }
     
     private func configureLogoImageView() {
@@ -48,7 +71,7 @@ class SearchVC: UIViewController {
     
     private func configureTextField() {
         view.addSubview(usernameTextField)
-        
+        usernameTextField.delegate = self
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
             usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -59,6 +82,7 @@ class SearchVC: UIViewController {
     
     private func configureCallToActionButton() {
         view.addSubview(callToActionButton)
+        callToActionButton.addTarget(self, action: #selector(pushFollowerLishVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
@@ -67,6 +91,26 @@ class SearchVC: UIViewController {
             callToActionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-    
+}
 
+extension SearchVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        pushFollowerLishVC()
+        return true
+    }
+}
+
+extension String {
+    
+    var isValidEmail: Bool {
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: self)
+    }
+    
+    var isValidPassword: Bool {
+        let passwordFormat = "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordFormat)
+        return passwordPredicate.evaluate(with: self)
+    }
 }
