@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		589D46C024E9699600B17E10 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D46BF24E9699600B17E10 /* GFTextField.swift */; };
 		A587D0F624E107A5008E472B /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D0F524E107A5008E472B /* GFButton.swift */; };
 		A5CD14C824DED5D500264408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD14C724DED5D500264408 /* AppDelegate.swift */; };
 		A5CD14CA24DED5D500264408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD14C924DED5D500264408 /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		589D46BF24E9699600B17E10 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		A587D0F524E107A5008E472B /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		A5CD14C424DED5D500264408 /* githubFollwer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubFollwer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CD14C724DED5D500264408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,8 +109,9 @@
 				A5CD14D224DED5D700264408 /* LaunchScreen.storyboard */,
 				A5CD14D524DED5D700264408 /* Info.plist */,
 				A5CD14F724DEE7EA00264408 /* SearchVC.swift */,
-				A587D0F524E107A5008E472B /* GFButton.swift */,
 				A5CD14F924DEE81900264408 /* FavoritesListVC.swift */,
+				A587D0F524E107A5008E472B /* GFButton.swift */,
+				589D46BF24E9699600B17E10 /* GFTextField.swift */,
 			);
 			path = githubFollwer;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				589D46C024E9699600B17E10 /* GFTextField.swift in Sources */,
 				A5CD14FA24DEE81900264408 /* FavoritesListVC.swift in Sources */,
 				A587D0F624E107A5008E472B /* GFButton.swift in Sources */,
 				A5CD14F824DEE7EA00264408 /* SearchVC.swift in Sources */,
