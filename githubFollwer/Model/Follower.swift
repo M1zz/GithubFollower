@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Follower: Decodable {
+    var login: String
+    var avatarUrl: String
+}
