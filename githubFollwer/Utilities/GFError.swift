@@ -1,5 +1,5 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  githubFollwer
 //
 //  Created by 이현호 on 2021/02/08.
