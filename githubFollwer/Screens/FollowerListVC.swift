@@ -57,6 +57,14 @@ class FollowerListVC: UIViewController {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollower = false }
                 self.followers.append(contentsOf: followers)
+                
+                if self.followers.isEmpty {
+                    let message = "팔로잉 하고 있는 유저가 없습니다. 가서 팔로우 해주세요 😁"
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: message, in: self.view)
+                    }
+                    return
+                }
                 self.updateData()
                 
             case .failure(let error):

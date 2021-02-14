@@ -29,6 +29,7 @@
 		A5CF16FA25D2DF6200EF05CB /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF16F925D2DF6200EF05CB /* FollowerCell.swift */; };
 		A5CF16FF25D2DFD500EF05CB /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF16FE25D2DFD500EF05CB /* GFAvatarImageView.swift */; };
 		A5CF170525D7D91600EF05CB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF170425D7D91600EF05CB /* UIHelper.swift */; };
+		A5CF171325D9631100EF05CB /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF171225D9631100EF05CB /* GFEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		A5CF16F925D2DF6200EF05CB /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		A5CF16FE25D2DFD500EF05CB /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		A5CF170425D7D91600EF05CB /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		A5CF171225D9631100EF05CB /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +109,13 @@
 		A554A47825D017000085E904 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				A5CF171125D9629E00EF05CB /* Labels */,
+				A5CF171025D9628000EF05CB /* ViewControllers */,
+				A5CF170F25D9627800EF05CB /* ImageViews */,
+				A5CF170E25D9627100EF05CB /* TextField */,
+				A5CF170C25D9625000EF05CB /* Buttons */,
+				A5CF170D25D9625900EF05CB /* Views */,
 				A5CF16F825D2DF3E00EF05CB /* Cells */,
-				A554A47925D017000085E904 /* GFButton.swift */,
-				A554A47A25D017000085E904 /* GFAlertVC.swift */,
-				A554A47B25D017000085E904 /* GFTextField.swift */,
-				A554A47C25D017000085E904 /* GFTitleLabel.swift */,
-				A554A47D25D017000085E904 /* GFBodyLabel.swift */,
-				A5CF16FE25D2DFD500EF05CB /* GFAvatarImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -232,6 +234,55 @@
 				A5CF16F925D2DF6200EF05CB /* FollowerCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A5CF170C25D9625000EF05CB /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A554A47925D017000085E904 /* GFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A5CF170D25D9625900EF05CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5CF171225D9631100EF05CB /* GFEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A5CF170E25D9627100EF05CB /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				A554A47B25D017000085E904 /* GFTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		A5CF170F25D9627800EF05CB /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				A5CF16FE25D2DFD500EF05CB /* GFAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		A5CF171025D9628000EF05CB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A554A47A25D017000085E904 /* GFAlertVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A5CF171125D9629E00EF05CB /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				A554A47D25D017000085E904 /* GFBodyLabel.swift */,
+				A554A47C25D017000085E904 /* GFTitleLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +429,7 @@
 				A554A49325D017000085E904 /* GFBodyLabel.swift in Sources */,
 				A554A49B25D017000085E904 /* FavoritesListVC.swift in Sources */,
 				A554A49125D017000085E904 /* GFTextField.swift in Sources */,
+				A5CF171325D9631100EF05CB /* GFEmptyStateView.swift in Sources */,
 				A554A49C25D017000085E904 /* SearchVC.swift in Sources */,
 				A554A49025D017000085E904 /* GFAlertVC.swift in Sources */,
 				A554A49525D017000085E904 /* User.swift in Sources */,
