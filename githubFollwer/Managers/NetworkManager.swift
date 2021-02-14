@@ -6,12 +6,14 @@
 //  Copyright © 2020 tempYsoup. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     // singleton
     static let shared = NetworkManager()
     let baseURL = "https://api.github.com/users/"
+    let cache = NSCache<NSString, UIImage>()
+    
     private init() {}
     
     func getFollowers(for userName: String, page: Int, completed: @escaping (Result<[Follower], GFError>) -> Void) {
