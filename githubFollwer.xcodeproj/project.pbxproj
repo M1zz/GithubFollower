@@ -30,6 +30,7 @@
 		A5CF16FF25D2DFD500EF05CB /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF16FE25D2DFD500EF05CB /* GFAvatarImageView.swift */; };
 		A5CF170525D7D91600EF05CB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF170425D7D91600EF05CB /* UIHelper.swift */; };
 		A5CF171325D9631100EF05CB /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF171225D9631100EF05CB /* GFEmptyStateView.swift */; };
+		A5CF17EF25DA845F00EF05CB /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF17EE25DA845F00EF05CB /* UserInfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		A5CF16FE25D2DFD500EF05CB /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		A5CF170425D7D91600EF05CB /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		A5CF171225D9631100EF05CB /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		A5CF17EE25DA845F00EF05CB /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				A554A48A25D017000085E904 /* FavoritesListVC.swift */,
 				A554A48B25D017000085E904 /* SearchVC.swift */,
 				A554A48C25D017000085E904 /* FollowerListVC.swift */,
+				A5CF17EE25DA845F00EF05CB /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				A554A49025D017000085E904 /* GFAlertVC.swift in Sources */,
 				A554A49525D017000085E904 /* User.swift in Sources */,
 				A554A49E25D017000085E904 /* NetworkManager.swift in Sources */,
+				A5CF17EF25DA845F00EF05CB /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
