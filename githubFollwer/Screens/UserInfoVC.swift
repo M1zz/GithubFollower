@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import SafariServices
+
+protocol UserInfoVCDelegate: class {
+    func didTapGitHubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
 
 class UserInfoVC: UIViewController {
 
@@ -39,18 +45,25 @@ class UserInfoVC: UIViewController {
             
             switch result {
             case .success(let user):
-                DispatchQueue.main.async {
-                    self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
-                    self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
-                    self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
-                    self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
-                }
+                DispatchQueue.main.async { self.configureUIElements(with: user) }
 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "무언가 잘못 되었습니다.", message: error.rawValue, buttonTitle: "Ok")
             }
-            
         }
+    }
+    
+    func configureUIElements(with user: User) {
+        let repoItemVC = GFRepoItemVC(user: user)
+        repoItemVC.delegate = self
+
+        let followerItemVC = GFFollowerItemVC(user: user)
+        followerItemVC.delegate = self
+        
+        self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+        self.add(childVC: repoItemVC, to: self.itemViewOne)
+        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
     }
     
     
@@ -58,7 +71,7 @@ class UserInfoVC: UIViewController {
         let padding: CGFloat = 20
         let itemHeight: CGFloat = 140
         
-        itemViews = [headerView, itemViewOne, itemViewTwo]
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -98,6 +111,23 @@ class UserInfoVC: UIViewController {
     @objc func dissmissVC() {
         dismiss(animated: true)
     }
+}
+
+extension UserInfoVC: UserInfoVCDelegate {
+    func didTapGitHubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGFAlertOnMainThread(title: "잘못된 URL", message: "이 url은 유효하지 않습니다.", buttonTitle: "Ok")
+            return
+        }
+        
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
+    }
     
+    func didTapGetFollowers(for user: User) {
+        
+    }
     
+
 }
