@@ -56,6 +56,5 @@ class GFAvatarImageView: UIImageView {
         }
         
         task.resume()
-        print("download \(urlString)")
     }
 }
