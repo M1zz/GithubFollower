@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 
 protocol UserInfoVCDelegate: class {
     func didTapGitHubProfile(for user: User)
@@ -23,6 +22,7 @@ class UserInfoVC: UIViewController {
     var itemViews: [UIView] = []
     
     var username: String!
+    weak var delegate: FollowerListVCDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,7 @@ class UserInfoVC: UIViewController {
             }
         }
     }
+    
     
     func configureUIElements(with user: User) {
         let repoItemVC = GFRepoItemVC(user: user)
@@ -120,13 +121,18 @@ extension UserInfoVC: UserInfoVCDelegate {
             return
         }
         
-        let safariVC = SFSafariViewController(url: url)
-        safariVC.preferredControlTintColor = .systemGreen
-        present(safariVC, animated: true)
+        presentSafariVC(with: url)
     }
     
+    
     func didTapGetFollowers(for user: User) {
+        guard user.following > 0 else {
+            presentGFAlertOnMainThread(title: "No followers", message: "팔로워가 없네요. 🤣", buttonTitle: "슬픔주의")
+            return
+        }
+        dismiss(animated: true)
         
+        delegate.didRequestFollowers(for: user.login)
     }
     
 
