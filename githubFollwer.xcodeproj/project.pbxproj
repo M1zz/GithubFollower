@@ -38,6 +38,7 @@
 		A5571F9425E1F4A700732396 /* GFTabBarcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5571F9325E1F4A700732396 /* GFTabBarcontroller.swift */; };
 		A5571F9A25E21BB600732396 /* GFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5571F9925E21BB600732396 /* GFAlertContainerView.swift */; };
 		A5571FA225E28AEC00732396 /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5571FA125E28AEC00732396 /* GFDataLoadingVC.swift */; };
+		A5571FAA25E28CBA00732396 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5571FA925E28CBA00732396 /* UIView+Ext.swift */; };
 		A5CD14DF24DED5D800264408 /* githubFollwerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD14DE24DED5D800264408 /* githubFollwerTests.swift */; };
 		A5CD14EA24DED5D900264408 /* githubFollwerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD14E924DED5D900264408 /* githubFollwerUITests.swift */; };
 		A5CF16FA25D2DF6200EF05CB /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF16F925D2DF6200EF05CB /* FollowerCell.swift */; };
@@ -96,6 +97,7 @@
 		A5571F9325E1F4A700732396 /* GFTabBarcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarcontroller.swift; sourceTree = "<group>"; };
 		A5571F9925E21BB600732396 /* GFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertContainerView.swift; sourceTree = "<group>"; };
 		A5571FA125E28AEC00732396 /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
+		A5571FA925E28CBA00732396 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		A5CD14C424DED5D500264408 /* githubFollwer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubFollwer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CD14D524DED5D700264408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5CD14DA24DED5D800264408 /* githubFollwerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = githubFollwerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				A554A47F25D017000085E904 /* UIViewController+Ext.swift */,
 				A52B82FD25DD47BF00078B2F /* Date+Ext.swift */,
 				A52B830225DD47E700078B2F /* String+Ext.swift */,
+				A5571FA925E28CBA00732396 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				A554A49025D017000085E904 /* GFAlertVC.swift in Sources */,
 				A554A49525D017000085E904 /* User.swift in Sources */,
 				A554A49E25D017000085E904 /* NetworkManager.swift in Sources */,
+				A5571FAA25E28CBA00732396 /* UIView+Ext.swift in Sources */,
 				A52B82ED25DD32BC00078B2F /* GFRepoItemVC.swift in Sources */,
 				A5CF17EF25DA845F00EF05CB /* UserInfoVC.swift in Sources */,
 			);

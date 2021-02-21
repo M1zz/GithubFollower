@@ -22,6 +22,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        view.addSubviews(logoImageView, usernameTextField, callToActionButton)
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
@@ -57,7 +58,6 @@ class SearchVC: UIViewController {
     
     
     private func configureLogoImageView() {
-        view.addSubview(logoImageView)
         // 커스텀 버튼과 텍스트 필드는 안에 코드가 들어있지만 레귤러 이미지 뷰는 들어있지 않는다.
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         // 문자열이 들어가 있다면 오타와 이름변경으로 인해 언젠가 크래시를 낼 위험을 잠정적으로 가지고 있는다.
@@ -78,7 +78,6 @@ class SearchVC: UIViewController {
     
     
     private func configureTextField() {
-        view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
@@ -90,7 +89,6 @@ class SearchVC: UIViewController {
     
     
     private func configureCallToActionButton() {
-        view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerLishVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
