@@ -20,10 +20,9 @@ class GFSecndaryTitleLabel: UILabel {
     }
     
     
-    init(fontsize: CGFloat) {
-        super.init(frame : .zero)
+    convenience init(fontsize: CGFloat) {
+        self.init(frame : .zero)
         font = UIFont.systemFont(ofSize: fontsize, weight: .medium)
-        configure()
     }
     
     
