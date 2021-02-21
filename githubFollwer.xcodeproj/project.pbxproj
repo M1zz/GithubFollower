@@ -35,6 +35,7 @@
 		A554A49E25D017000085E904 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A554A48E25D017000085E904 /* NetworkManager.swift */; };
 		A554A50725D1175A0085E904 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A554A50625D1175A0085E904 /* GFError.swift */; };
 		A5571F8625E1555B00732396 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5571F8525E1555B00732396 /* FavoriteCell.swift */; };
+		A5571F9425E1F4A700732396 /* GFTabBarcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5571F9325E1F4A700732396 /* GFTabBarcontroller.swift */; };
 		A5CD14DF24DED5D800264408 /* githubFollwerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD14DE24DED5D800264408 /* githubFollwerTests.swift */; };
 		A5CD14EA24DED5D900264408 /* githubFollwerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD14E924DED5D900264408 /* githubFollwerUITests.swift */; };
 		A5CF16FA25D2DF6200EF05CB /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF16F925D2DF6200EF05CB /* FollowerCell.swift */; };
@@ -90,6 +91,7 @@
 		A554A48E25D017000085E904 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A554A50625D1175A0085E904 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		A5571F8525E1555B00732396 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		A5571F9325E1F4A700732396 /* GFTabBarcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarcontroller.swift; sourceTree = "<group>"; };
 		A5CD14C424DED5D500264408 /* githubFollwer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubFollwer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CD14D524DED5D700264408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5CD14DA24DED5D800264408 /* githubFollwerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = githubFollwerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 		A554A47825D017000085E904 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				A5571F8A25E1F38F00732396 /* TarBarControllers */,
 				A5CF171125D9629E00EF05CB /* Labels */,
 				A5CF171025D9628000EF05CB /* ViewControllers */,
 				A5CF170F25D9627800EF05CB /* ImageViews */,
@@ -212,6 +215,14 @@
 				A53407D125DC0C4700347BDF /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A5571F8A25E1F38F00732396 /* TarBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5571F9325E1F4A700732396 /* GFTabBarcontroller.swift */,
+			);
+			path = TarBarControllers;
 			sourceTree = "<group>";
 		};
 		A5CD14BB24DED5D500264408 = {
@@ -475,6 +486,7 @@
 				A53407D725DC91A800347BDF /* GFItemInfoView.swift in Sources */,
 				A5571F8625E1555B00732396 /* FavoriteCell.swift in Sources */,
 				A5CF16FA25D2DF6200EF05CB /* FollowerCell.swift in Sources */,
+				A5571F9425E1F4A700732396 /* GFTabBarcontroller.swift in Sources */,
 				A554A50725D1175A0085E904 /* GFError.swift in Sources */,
 				A53407C825DC052200347BDF /* GFUserInfoHeaderVC.swift in Sources */,
 				A554A49325D017000085E904 /* GFBodyLabel.swift in Sources */,
