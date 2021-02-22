@@ -13,6 +13,7 @@ class FavoritesListVC: GFDataLoadingVC {
     let tableView = UITableView()
     var favorites: [Follower] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -52,18 +53,23 @@ class FavoritesListVC: GFDataLoadingVC {
             
             switch result {
             case .success(let favorites):
-                if favorites.isEmpty {
-                    self.showEmptyStateView(with: "즐겨찾기가 없습니다.", in: self.view)
-                } else {
-                    self.favorites = favorites
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.view.bringSubviewToFront(self.tableView)
-                    }
-                }
+                self.updateUI(with: favorites)
 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "무엇인가 잘 못 되었습니다.", message: error.rawValue, buttonTitle: "Ok")
+            }
+        }
+    }
+    
+    
+    private func updateUI(with favorites: [Follower]) {
+        if favorites.isEmpty {
+            self.showEmptyStateView(with: "즐겨찾기가 없습니다.", in: self.view)
+        } else {
+            self.favorites = favorites
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
             }
         }
     }
@@ -90,6 +96,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.pushViewController(destVC, animated: true)
     }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }

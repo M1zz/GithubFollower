@@ -14,6 +14,9 @@ protocol UserInfoVCDelegate: class {
 
 class UserInfoVC: GFDataLoadingVC {
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
@@ -23,9 +26,11 @@ class UserInfoVC: GFDataLoadingVC {
     var username: String!
     weak var delegate: UserInfoVCDelegate!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureScrollView()
         layoutUI()
         getUserInfo()
     }
@@ -35,6 +40,19 @@ class UserInfoVC: GFDataLoadingVC {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dissmissVC))
         navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    
+    func configureScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.pintoEdges(of: view)
+        contentView.pintoEdges(of: scrollView)
+        
+        NSLayoutConstraint.activate([
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 600)
+        ])
     }
     
     
@@ -68,17 +86,17 @@ class UserInfoVC: GFDataLoadingVC {
         itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for itemView in itemViews {
-            view.addSubview(itemView)
+            contentView.addSubview(itemView)
             itemView.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+                itemView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+                itemView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             ])
         }
         
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
@@ -108,6 +126,7 @@ class UserInfoVC: GFDataLoadingVC {
 }
 
 extension UserInfoVC: GFFollowerItemVCDelegate {
+    
     func didTapGetFollowers(for user: User) {
         guard user.following > 0 else {
             presentGFAlertOnMainThread(title: "No followers", message: "팔로워가 없네요. 🤣", buttonTitle: "슬픔주의")
@@ -121,6 +140,7 @@ extension UserInfoVC: GFFollowerItemVCDelegate {
 
 
 extension UserInfoVC: GFRepoItemVCDelegate {
+    
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "잘못된 URL", message: "이 url은 유효하지 않습니다.", buttonTitle: "Ok")

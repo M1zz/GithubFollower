@@ -14,6 +14,7 @@ class FavoriteCell: UITableViewCell {
     let avatarImageView = GFAvatarImageView(frame: .zero)
     let usernameLabel = GFTitleLabel(textAlignment: .left, fontSize: 26)
     
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -27,11 +28,9 @@ class FavoriteCell: UITableViewCell {
     
     func set(favorite: Follower) {
         usernameLabel.text = favorite.login
-        NetworkManager.shared.downloadImage(from: favorite.avatarUrl) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.avatarImageView.image = image }
-        }
+        avatarImageView.downloadAvatarImage(fromURL: favorite.avatarUrl)
     }
+    
     
     private func configure() {
         addSubviews(avatarImageView, usernameLabel)

@@ -180,8 +180,8 @@
 		A554A48025D017000085E904 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A554A48125D017000085E904 /* User.swift */,
 				A554A48225D017000085E904 /* Follower.swift */,
+				A554A48125D017000085E904 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,8 +220,8 @@
 		A554A50525D1173A0085E904 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A554A50625D1175A0085E904 /* GFError.swift */,
 				A5CF170425D7D91600EF05CB /* UIHelper.swift */,
+				A554A50625D1175A0085E904 /* GFError.swift */,
 				A53407D125DC0C4700347BDF /* Constants.swift */,
 			);
 			path = Utilities;
@@ -259,10 +259,10 @@
 			isa = PBXGroup;
 			children = (
 				A554A50525D1173A0085E904 /* Utilities */,
-				A554A47825D017000085E904 /* Custom Views */,
-				A554A47E25D017000085E904 /* Extensions */,
 				A554A48D25D017000085E904 /* Managers */,
 				A554A48025D017000085E904 /* Model */,
+				A554A47E25D017000085E904 /* Extensions */,
+				A554A47825D017000085E904 /* Custom Views */,
 				A554A48925D017000085E904 /* Screens */,
 				A554A48325D017000085E904 /* Support */,
 				A5CD14D524DED5D700264408 /* Info.plist */,
