@@ -13,13 +13,16 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    var logoImageViewTopConstraint: NSLayoutConstraint!
     
     // MARK: TODO : 프로퍼티의 종류에 대해 다시 공부할 필요가 있음!
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        view.addSubviews(logoImageView, usernameTextField, callToActionButton)
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
@@ -30,13 +33,16 @@ class SearchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // super를 부르지 않는 경우는?
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.isNavigationBarHidden = true
     }
     
+    
     func createDismissKeyboardTapGusture() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
+    
     
     @objc func pushFollowerLishVC() {
         guard isUsernameEntered else {
@@ -44,21 +50,25 @@ class SearchVC: UIViewController {
             return
         }
 
-        let followerListVC = FollowerListVC()
-        followerListVC.username = usernameTextField.text
-        followerListVC.title = usernameTextField.text
+        usernameTextField.resignFirstResponder()
+        
+        let followerListVC = FollowerListVC(username: usernameTextField.text!)
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
+    
     private func configureLogoImageView() {
-        view.addSubview(logoImageView)
         // 커스텀 버튼과 텍스트 필드는 안에 코드가 들어있지만 레귤러 이미지 뷰는 들어있지 않는다.
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         // 문자열이 들어가 있다면 오타와 이름변경으로 인해 언젠가 크래시를 낼 위험을 잠정적으로 가지고 있는다.
-        logoImageView.image = UIImage(named: "gh-logo")!
+        logoImageView.image = Images.ghLogo
+        
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+        
+        logoImageViewTopConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
+        logoImageViewTopConstraint.isActive = true
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
             logoImageView.widthAnchor.constraint(equalToConstant: 200)
@@ -66,8 +76,8 @@ class SearchVC: UIViewController {
         
     }
     
+    
     private func configureTextField() {
-        view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
@@ -77,8 +87,8 @@ class SearchVC: UIViewController {
         ])
     }
     
+    
     private func configureCallToActionButton() {
-        view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerLishVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
@@ -90,12 +100,14 @@ class SearchVC: UIViewController {
     }
 }
 
+
 extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         pushFollowerLishVC()
         return true
     }
 }
+
 
 extension String {
     
