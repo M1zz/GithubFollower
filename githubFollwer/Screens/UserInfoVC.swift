@@ -26,6 +26,7 @@ class UserInfoVC: GFDataLoadingVC {
     var username: String!
     weak var delegate: UserInfoVCDelegate!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -125,6 +126,7 @@ class UserInfoVC: GFDataLoadingVC {
 }
 
 extension UserInfoVC: GFFollowerItemVCDelegate {
+    
     func didTapGetFollowers(for user: User) {
         guard user.following > 0 else {
             presentGFAlertOnMainThread(title: "No followers", message: "팔로워가 없네요. 🤣", buttonTitle: "슬픔주의")
@@ -138,6 +140,7 @@ extension UserInfoVC: GFFollowerItemVCDelegate {
 
 
 extension UserInfoVC: GFRepoItemVCDelegate {
+    
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "잘못된 URL", message: "이 url은 유효하지 않습니다.", buttonTitle: "Ok")
